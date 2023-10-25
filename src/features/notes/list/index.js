@@ -1,5 +1,8 @@
+import { useSelector } from "react-redux";
+import { selectAllNotes } from "../notes.slice";
+
 export default function NotesList() {
-  const notes = [];
+  const notes = useSelector(selectAllNotes);
 
   function handleDeleteButtonClick(id) {}
 
