@@ -1,10 +1,13 @@
-import { useSelector } from "react-redux";
-import { selectAllNotes } from "../notes.slice";
+import { useSelector, useDispatch } from "react-redux";
+import { removeNote, selectAllNotes } from "../notes.slice";
 
 export default function NotesList() {
   const notes = useSelector(selectAllNotes);
+  const dispatch = useDispatch();
 
-  function handleDeleteButtonClick(id) {}
+  function handleDeleteButtonClick(id) {
+    dispatch(removeNote(id));
+  }
 
   const notesListItems = notes.map(({ id, note }) => (
     <li key={id}>
